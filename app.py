@@ -42,7 +42,7 @@ def main():
             key = key_gen()
 
             # Format the file to give it a new name
-            formatted_file_name = f"{filename[0:len(filename)-4]}_{key}_{filename[-4:]}"
+            formatted_file_name = f"{filename[0:len(filename) - 4]}_{key}_{filename[-4:]}"
 
             # Save the file to the upload folder
             file.save(os.path.join(app.config["UPLOAD_FOLDER"], formatted_file_name))
@@ -67,9 +67,11 @@ def main():
         '''
 
 
+# Not optimal at all and instead I want to use user sessions/ids to store the data, or javascript cookies to store
+# the path temporarily before throwing it away after processing -- this way people can't just try to
+# guess files and classes, although it probably wouldn't matter all too much as it is only available for a certain time
 @app.route("/process/<class_ids>/<path>", methods=["GET"])
 def process_file(class_ids, path):
-
     # Assemble the actual path
     path = f"attendance_files/{path}"
 
