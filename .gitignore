@@ -127,7 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-.idea/
+.idea/*
 .idea
 
 *.txt
+
+*.db
+db/*.db
+db/*.py
+db/schema/
